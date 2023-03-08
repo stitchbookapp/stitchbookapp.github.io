@@ -1,50 +1,13 @@
-// Create the initial individual-stitch-box
-const container = document.querySelector('.container');
-const newStitchBox = document.createElement('div');
-newStitchBox.classList.add('individual-stitch-box');
-newStitchBox.innerHTML = `
-  <div class="stitch-label">New Stitch:</div>
-  <div class="stitch-count">
-    <button class="decrement-btn">-</button>
-    <span class="number">0</span>
-    <button class="increment-btn">+</button>
-  </div>
-`;
-container.appendChild(newStitchBox);
-
-//Event Listener
-container.addEventListener('click', (event) => {
-  if (event.target.matches('.increment-btn')) {
-    const numberEl = event.target.parentNode.querySelector('.number');
-    let number = Number(numberEl.textContent);
-    number++;
-    numberEl.textContent = number;
-  } else if (event.target.matches('.decrement-btn')) {
-    const numberEl = event.target.parentNode.querySelector('.number');
-    let number = Number(numberEl.textContent);
-    if (number > 0) {
-      number--;
-      numberEl.textContent = number;
-    }
-  } else if (event.target.matches('.stitch-label')) {
-    const labelText = prompt('Enter the stitch name:');
-    if (labelText) {
-      event.target.textContent = labelText;
-    }
-  }
-});
-
-// Get all the add stitch button and add an event listener to it
-const addStitchBtn = document.getElementById('add-stitch-btn');
-
-addStitchBtn.addEventListener('click', () => {
+//addStitchBtn.addEventListener('click', () => {
+function createNewStitchBox() {
+  // Create the individual stitch box
   const newStitchBox = document.createElement('div');
   newStitchBox.classList.add('individual-stitch-box');
 
   // Create the stitch label
   const stitchLabel = document.createElement('div');
   stitchLabel.classList.add('stitch-label');
-  stitchLabel.textContent = 'New Stitch';
+  stitchLabel.textContent = 'New Stitch:';
 
   // Add the stitch label to the new stitch box
   newStitchBox.appendChild(stitchLabel);
@@ -77,5 +40,46 @@ addStitchBtn.addEventListener('click', () => {
   newStitchBox.appendChild(stitchCount);
 
   // Add the new stitch box to the container
+  const container = document.querySelector('.container');
+  container.appendChild(newStitchBox);
+
+  // Return the new stitch box
+  return newStitchBox;
+}
+
+// Create the initial individual-stitch-box
+const container = document.querySelector('.container');
+const newStitchBox = document.createElement('div');
+createNewStitchBox()
+container.appendChild(newStitchBox);
+
+// Get all the add stitch button and add an event listener to it
+const addStitchBtn = document.getElementById('add-stitch-btn');
+
+//Event Listener Stitch-box
+container.addEventListener('click', (event) => {
+  if (event.target.matches('.increment-btn')) {
+    const numberEl = event.target.parentNode.querySelector('.number');
+    let number = Number(numberEl.textContent);
+    number++;
+    numberEl.textContent = number;
+  } else if (event.target.matches('.decrement-btn')) {
+    const numberEl = event.target.parentNode.querySelector('.number');
+    let number = Number(numberEl.textContent);
+    if (number > 0) {
+      number--;
+      numberEl.textContent = number;
+    }
+  } else if (event.target.matches('.stitch-label')) {
+    const labelText = prompt('Enter the stitch name:');
+    if (labelText) {
+      event.target.textContent = labelText;
+    }
+  } 
+});
+
+//Add Stitch event listener
+addStitchBtn.addEventListener('click', () => {
+  createNewStitchBox();
   container.appendChild(newStitchBox);
 });
