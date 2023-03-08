@@ -47,16 +47,13 @@ function createNewStitchBox() {
   return newStitchBox;
 }
 
-// Create the initial individual-stitch-box
+// on load; Create the initial individual-stitch-box
 const container = document.querySelector('.container');
-const newStitchBox = document.createElement('div');
-createNewStitchBox()
+// call the function and store the returned value
+const newStitchBox = createNewStitchBox(); 
 container.appendChild(newStitchBox);
 
-// Get all the add stitch button and add an event listener to it
-const addStitchBtn = document.getElementById('add-stitch-btn');
-
-//Event Listener Stitch-box
+//Stitch-boxes' Event Listeners
 container.addEventListener('click', (event) => {
   if (event.target.matches('.increment-btn')) {
     const numberEl = event.target.parentNode.querySelector('.number');
@@ -78,8 +75,10 @@ container.addEventListener('click', (event) => {
   } 
 });
 
-//Add Stitch event listener
+//Add-Stitch event listener
+const addStitchBtn = document.getElementById('add-stitch-btn');
 addStitchBtn.addEventListener('click', () => {
-  createNewStitchBox();
+  // call the function and store the returned value
+  const newStitchBox = createNewStitchBox();
   container.appendChild(newStitchBox);
 });

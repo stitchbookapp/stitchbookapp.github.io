@@ -4,5 +4,5 @@
 ### ROADMAP:
 - Delete Stitch button
 - Saving between page-refreshes
-- Code consolidation/hygeine
+- Code consolidation/hygiene
 - Recipe Generation: Import and export text files to repeat patterns in checklist format
