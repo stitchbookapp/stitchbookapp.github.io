@@ -71,6 +71,12 @@ button {
     font-size: 28px;
 }
 
+#new-project-btn {
+    margin-bottom: 10px;
+    font-family: 'Bebas';
+    font-size: 28px;
+}
+
 .stitch-label {
     cursor: pointer; /* Change the cursor to a pointer when hovering over the text */
     font-size: 28px;

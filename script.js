@@ -1,4 +1,3 @@
-//addStitchBtn.addEventListener('click', () => {
 function createNewStitchBox() {
   // Create the individual stitch box
   const newStitchBox = document.createElement('div');
@@ -47,13 +46,27 @@ function createNewStitchBox() {
   return newStitchBox;
 }
 
-// on load; Create the initial individual-stitch-box
-const container = document.querySelector('.container');
-// call the function and store the returned value
-const newStitchBox = createNewStitchBox(); 
-container.appendChild(newStitchBox);
+// Save the stitch boxes to localStorage
+function saveStitchBoxes() {
+  const container = document.querySelector('.container');
+  localStorage.setItem('stitchContainer', container.innerHTML);
+}
 
-//Stitch-boxes' Event Listeners
+// on load; Create the initial individual-stitch-box and load saved content
+window.addEventListener('load', () => {
+  const container = document.querySelector('.container');
+  const savedContent = localStorage.getItem('stitchContainer');
+  if (savedContent) {
+    container.innerHTML = savedContent;
+  } else {
+    // call the function and store the returned value
+    const newStitchBox = createNewStitchBox(); 
+    container.appendChild(newStitchBox);
+  }
+});
+
+// Stitch-boxes' Event Listeners
+const container = document.querySelector('.container');
 container.addEventListener('click', (event) => {
   if (event.target.matches('.increment-btn')) {
     const numberEl = event.target.parentNode.querySelector('.number');
@@ -71,14 +84,27 @@ container.addEventListener('click', (event) => {
     const labelText = prompt('Enter the stitch name:');
     if (labelText) {
       event.target.textContent = labelText;
+    } else {
+      event.target.textContent = 'New Stitch:';
     }
-  } 
+  }
+  // Save the stitch boxes to localStorage
+  saveStitchBoxes();
 });
 
-//Add-Stitch event listener
+// Add-Stitch event listener
 const addStitchBtn = document.getElementById('add-stitch-btn');
 addStitchBtn.addEventListener('click', () => {
   // call the function and store the returned value
   const newStitchBox = createNewStitchBox();
   container.appendChild(newStitchBox);
+  // Save the stitch boxes to localStorage
+  saveStitchBoxes();
+});
+
+// New Project event listener
+const newProjectBtn = document.getElementById('new-project-btn');
+newProjectBtn.addEventListener('click', () => {
+  localStorage.removeItem('stitchContainer');
+  location.reload();
 });
