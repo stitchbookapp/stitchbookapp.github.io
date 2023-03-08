@@ -1,0 +1,93 @@
+@font-face {
+    font-family: 'Bebas';
+    src: url('assets/Bebas-Regular.ttf') format('truetype');
+}
+
+html {
+    overflow: hidden;
+    background-image: url(assets/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Bebas';
+}
+
+button {
+    padding: 10px;
+    font-size: large;
+}
+
+.wholebody {
+    width: 67%;
+    margin: 0 auto; /* Center the div horizontally */
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.welcome {
+    text-align: center;
+    font-family: 'Bebas';
+    color: rgb(65, 85, 40); /*65, 85, 40*/
+    background-color: rgba(255, 245, 235, .5);
+    padding: 10px;
+    border: 2px solid rgba(65, 85, 40, .75);
+    border-radius: 8px;
+}
+
+.container {
+    height: 80%;
+    background-color: rgba(231, 213, 198, 0.5);
+    border: 2px solid rgba(65, 85, 40, .75);
+    border-radius: 8px;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.container::-webkit-scrollbar{
+    display: none;
+}
+
+#output {
+    display: none;
+}
+
+.individual-stitch-box {
+    background-color: rgba(255, 245, 235, 1);
+    border: 2px solid rgba(65, 85, 40, .75);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    max-width: 100%;
+}
+
+#add-stitch-btn {
+    margin-top: 10px;
+    font-family: 'Bebas';
+    font-size: 28px;
+}
+
+#generate-array-btn {
+    margin-bottom: 10px;
+    font-family: 'Bebas';
+    font-size: 28px;
+}
+
+.stitch-label {
+    cursor: pointer; /* Change the cursor to a pointer when hovering over the text */
+    font-size: 28px;
+    display: inline-block;
+    text-align: left;
+    padding-right: 15%;
+    max-width: 70%;
+}
+
+.stitch-count {
+    max-width: 30%;
+    font-size: 28px;
+    display: inline-block;
+    padding-left: 10%;
+}
+
+.increment-btn, .number, .decrement-btn {
+    padding-left: 10px;
+    padding-right: 10px;
+}
