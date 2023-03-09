@@ -3,6 +3,21 @@ function createNewStitchBox() {
   const newStitchBox = document.createElement('div');
   newStitchBox.classList.add('individual-stitch-box');
 
+  // Create the delete button
+  const deleteBtn = document.createElement('button');
+  deleteBtn.classList.add('delete-btn');
+  deleteBtn.textContent = '';
+
+  // Add an event listener to the delete button
+  deleteBtn.addEventListener('click', () => {
+    newStitchBox.remove();
+    // Save the stitch boxes to localStorage
+    saveStitchBoxes();
+  });
+
+  // Add the delete button to the new stitch box
+  newStitchBox.appendChild(deleteBtn);
+
   // Create the stitch label
   const stitchLabel = document.createElement('div');
   stitchLabel.classList.add('stitch-label');
@@ -18,7 +33,7 @@ function createNewStitchBox() {
   // Add the decrement button
   const decrementBtn = document.createElement('button');
   decrementBtn.classList.add('decrement-btn');
-  decrementBtn.textContent = '-';
+  decrementBtn.textContent = '';
 
   // Add the stitch count number
   const stitchCountNumber = document.createElement('span');
@@ -28,7 +43,7 @@ function createNewStitchBox() {
   // Add the increment button
   const incrementBtn = document.createElement('button');
   incrementBtn.classList.add('increment-btn');
-  incrementBtn.textContent = '+';
+  incrementBtn.textContent = '';
 
   // Add the stitch count elements to the container
   stitchCount.appendChild(decrementBtn);

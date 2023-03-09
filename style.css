@@ -3,6 +3,11 @@
     src: url('assets/Bebas-Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Nerd Font';
+    src: url('assets/Hack Regular Nerd Font Complete.ttf') format('truetype');
+}
+
 html {
     overflow: hidden;
     background-image: url(assets/bg.jpg);
@@ -82,6 +87,7 @@ button {
     font-size: 28px;
     display: inline-block;
     text-align: left;
+    margin-left: 20px;
     padding-right: 15%;
     max-width: 70%;
 }
@@ -93,7 +99,21 @@ button {
     padding-left: 10%;
 }
 
-.increment-btn, .number, .decrement-btn {
-    padding-left: 10px;
-    padding-right: 10px;
+.increment-btn, .number, .decrement-btn, .delete-btn {
+    margin-right: 10px;
+}
+
+.delete-btn:before {
+    content: "\f0a7a";
+    font-family: 'Nerd Font';
+}
+
+.increment-btn:before {
+    content: "\f067";
+    font-family: 'Nerd Font';
+}
+
+.decrement-btn:before {
+    content: "\f068";
+    font-family: 'Nerd Font';
 }
